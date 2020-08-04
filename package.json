@@ -1,0 +1,29 @@
+{
+  "name": "mtgsnoop",
+  "version": "0.0.1",
+  "description": "MTGA tracker using Electron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arendish-Fair/MTGSnoop.git"
+  },
+  "keywords": [
+    "MTGA",
+    "Electron",
+    "Tracker",
+    "magic",
+    "arean"
+  ],
+  "author": "Jason Dalton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Arendish-Fair/MTGSnoop/issues"
+  },
+  "homepage": "https://github.com/Arendish-Fair/MTGSnoop#readme",
+  "dependencies": {
+    "electron-builder": "^22.8.0"
+  }
+}
