@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Magic the Gathering Arena Deck Tracker written in Electron for Mac and Windows">
+    <title>Arenish Fair's MTGA Tracker</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            background: #074a79;
+            margin: 0;
+            height: 100%;
+        }
+        article {
+            width: 80%;
+            background-color: white;
+            padding: 16px;
+            font-family: 'Merienda', cursive;
+        }
+        .content {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .content .sink {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .content .sink .box {
+            display: flex;
+            justify-content: center
+        }
+
+        .content .sink .box .show {
+            display: none
+        }
+
+        .content .sink .box .openClose {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .content .sink .box .openClose .svgDiv {
+            display: flex;
+            margin: 0 0 0 8px
+        }
+
+        .content .sink .box .openClose .show {
+            display: none
+        }
+
+        .content .sink .box .openClose svg {
+            height: 20px;
+            width: 20px;
+            cursor: pointer
+        }
+
+        .content .sink .box .openClose .noShow {
+            display: none
+        }
+
+        .content .sink squid-container {
+            width: fit-content
+        }
+
+        .content .sink squid-container .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            padding: 16px;
+            background-color: #fff;
+            grid-row-gap: 8px
+        }
+        .content .sink .title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .content header {
+            color: #fff;
+            font-family: ZCOOL XiaoWei, serif;
+            margin: 8px;
+            font-size: 4rem;
+            text-shadow: #8fb8dc 1px 2px 2px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content header .logoImage {
+            width: 90px;
+            height: 90px
+        }
+
+        .content footer {
+            grid-row-start: -1;
+            grid-row-end: -2;
+            height: 200px
+        }
+        .version {
+            font-size: .95rem;
+        }
+        .downloadDiv {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 16px 0;
+        }
+        .download {
+            padding-left: 1.8rem;
+            padding-right: 1.8rem;
+            line-height: 2.6em;
+            font-size: 1.2rem;
+            border-radius: .3em;
+            text-align: center;
+            min-width: 6em;
+            box-sizing: border-box;
+            padding: 0 1em;
+            line-height: 2.4em;
+            margin: auto;
+            font-size: 1rem;
+            background: transparent;
+            border: 1px solid;
+            border-radius: 3px;
+            cursor: pointer;
+            outline: none;
+            transition: all .2s ease;
+            white-space: nowrap;
+            color: #1975ff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .download:hover {
+            color:white;
+            background-color: #1975ff;
+        }
+        .code {
+            background-color: darkgray;
+            color: white;
+            padding: 0 8px;
+            border-radius: 4px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="content">
+        <header>
+            <div class="logo">
+                <img src="/assets/logo.svg" class="logoImage" />
+                Magic Arena Snoop
+            </div>
+            <div class='version'> Pre-Alpha</div>
+        </header>
+        <div data-ref="content" class="sink">
+            <article>
+                <div class='title'>Welcome to Arenish Fair's MTGA Snoop. </div>
+                <br>
+                This is a pre-alpha release of  Magic the Gathering Arena game tracker. I wanted to create something to track my
+                magic decks and play on my mac.  Since there was nothing out there, I've created this.  It will work on both windows 
+                and mac.
+                <div class='title'>What it is</div>
+                This is a pre-alpha release for a game tracker. Once installed, this app will show you what cards are in your library
+                and the percent chance to draw the card. This is not a plug-in for Arena but a separate app that can read the logs.
+                This is a test for this application to get feedback from users, and if there is any desire for this application.  you
+                can add feedback on the <a href='https://github.com/Arendish-Fair/MTGSnoop/issues'>github</a> site. Because this is a 
+                pre-alpha, I'm using limited server bandwidth. There may be some daily limits hit. But if this does happen, we will start to upgrade.
+                Please give it a try.
+                <div class='downloadDiv'>
+                    <a href='https://arenish-fair.web.app/MTG Snoop-0.0.1-alpha.dmg' class='download'>Snoop for Mac</a>
+                    <a href='https://arenish-fair.web.app/MTG Snoop Setup 0.0.1-alpha.exe' class='download'>Snoop for Window</a>
+                </div>
+                <div class='title'>How to Use</div>
+                Once you have downloaded the app, just start it up.  You will need to login using a google account to start with.  We may
+                add other ways to login in the future. once that is done then on the default screen add the file path to your Arena log dir.
+                It will normally be at location <span class='code'>/Users/&ltuser&gt/Library/Application Support/com.wizards.mtga/Logs/Logs/</span> on a mac
+                and <span class='code'>C:\Program Files (x86)\Wizards of the Coast\MTGA) -> MTGA_Data -> Logs -> Logs</span> on windows.
+                Then start playing games. Once you start a game, your deck will show up under <b>User Info</b>.  We are currently not sending any information back about the 
+                game or your deck. We have the tracker able to pick up games if you do crash. I will keep this application open until Oct 30, 2020.
+                
+                <div class='title'>What is the future</div>
+                If feedback is good and people want more of this application, then we will look at what to do with it.  We have written the code to give you 
+                deck statistics, deck search, and your statics. We are thinking of other stats and ML on parsing the data but that is still to come.  But more importantly
+                is what you would like to see in this app and web site. Please make suggestions at our <a href='https://github.com/Arendish-Fair/MTGSnoop/issues'>github</a> site.
+                Sorry for the small incomplete site.  We are in alpha, and good gaming to you.
+            </article>
+        </div>
+        <footer></footer>
+    </div>
+</body>
+
+</html>
